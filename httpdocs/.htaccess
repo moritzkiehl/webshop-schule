@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Password Protected Area"
+AuthUserFile /kunden/367901_76133/webseiten/werkraumhosting.net/mk_schulprojekt/httpdocs/.htpasswd
+Require valid-user
