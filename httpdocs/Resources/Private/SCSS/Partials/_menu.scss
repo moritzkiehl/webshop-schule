@@ -1,0 +1,19 @@
+.menu {
+  width: 100%;
+  padding: 0 100px;
+
+  .menu_list {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+
+    .menu_item {
+      margin-right: 15px;
+
+      .menu_link {
+
+      }
+    }
+  }
+}
