@@ -1,15 +1,31 @@
-.menu {
-    width: 100%;
-    padding: 0 100px;
-}
+* {
+  font-family: 'Roboto', sans-serif; }
 
-.menu .menu_list {
+body {
+  margin: 0; }
+
+div {
+  display: flex;
+  justify-content: center; }
+
+.menu {
+  width: auto;
+  padding: 0 100px;
+  background: #293133; }
+  .menu .menu_list {
+    margin: 0;
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    list-style: none;
-}
-
-.menu .menu_list .menu_item {
-    margin-right: 15px;
-}
+    list-style: none; }
+    .menu .menu_list .menu_item {
+      height: 40px; }
+      .menu .menu_list .menu_item .menu_link {
+        text-decoration: none;
+        color: white;
+        display: block;
+        font-size: 16px;
+        height: 100%;
+        padding: 10px 20px; }
+        .menu .menu_list .menu_item .menu_link:hover {
+          background-color: #333d40; }
