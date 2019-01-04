@@ -5,4 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>E3FI6</title>
     <link rel="stylesheet" href="../../Resources/Public/Css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
 </head>

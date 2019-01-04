@@ -1,8 +1,8 @@
 <?php
 
-namespace E3FI6\Webshop\Domain\View\ProductView;
+namespace MoritzKiehl\Webshop\View;
 
-use E3FI6\Webshop\Domain\Model\Product\Product;
+use MoritzKiehl\Webshop\Domain\Model\Product;
 
 class ProductView
 {

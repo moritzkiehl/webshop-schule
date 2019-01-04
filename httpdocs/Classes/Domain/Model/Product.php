@@ -1,6 +1,6 @@
 <?php
 
-namespace E3FI6\Webshop\Domain\Model\Product;
+namespace MoritzKiehl\Webshop\Domain\Model;
 class Product
 {
     public function getProductInformation()

@@ -1,0 +1,19 @@
+{
+  "name": "moritzkiehl/webshop-schule",
+  "type": "project",
+  "description": "PHP Project for School",
+  "keywords": [
+    "PHP"
+  ],
+  "authors": [
+    {
+      "name": "Moritz Kiehl",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MoritzKiehl\\Webshop\\": "Classes"
+    }
+  }
+}
