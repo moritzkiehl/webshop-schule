@@ -8,6 +8,12 @@ div {
   display: flex;
   justify-content: center; }
 
+.container {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto; }
+
 .menu {
   width: auto;
   padding: 0 100px;
@@ -29,3 +35,21 @@ div {
         padding: 10px 20px; }
         .menu .menu_list .menu_item .menu_link:hover {
           background-color: #333d40; }
+
+.product-wrapper {
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px; }
+  .product-wrapper .product {
+    padding: 0 15px;
+    margin: 0 1%;
+    border: 1px solid black;
+    width: 30%; }
+    .product-wrapper .product .product-body {
+      flex-direction: column; }
+
+.footer-container {
+  justify-content: center;
+  flex-direction: column; }
+
+/*# sourceMappingURL=style.css.map */
