@@ -11,15 +11,32 @@ class ProductView
      * Function to output Product Information from E3FI6\Webshop\Domain\Model\Product\Product
      * At the Moment uses Dummy function
      */
+
     public static function outputProduct()
     {
-        $information = Product::getDummyProductInformation();
+        $product = new Product;
+        $information = $product->getProduct(1);
         echo "<div class='product'>
-                <div class='product_body'>
-                    <h1>".$information['name']."</h1>
-                    <p>Preis: ".$information['price']."</p>
-                    <p>Bestand: ".$information['bestand']."</p>
+                <div class='product-body'>
+                    <h1>" . $information['Name'] . "</h1>
+                    <p>Preis: " . $information['Price'] . "</p>
+                    <p>Bestand: " . $information['Units'] . "</p>
                 </div>
             </div>";
     }
+
+    public static function outputAllProducts()
+    {
+        $products = new Product;
+        foreach ($products->getAllProducts() as $information) {
+            echo "<div class='product'>
+                <div class='product-body'>
+                    <h1>" . $information['Name'] . "</h1>
+                    <p>Preis: " . $information['Price'] . "</p>
+                    <p>Bestand: " . $information['Units'] . "</p>
+                </div>
+            </div>";
+        }
+    }
+
 }
