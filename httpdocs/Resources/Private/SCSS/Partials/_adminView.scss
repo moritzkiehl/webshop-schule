@@ -1,0 +1,28 @@
+.admin-view{
+  display: flex;
+  flex-wrap: wrap;
+  div{
+    width: 100%;
+  }
+}
+.product-list-view {
+  width: 100%;
+  flex-wrap: wrap;
+
+  div {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    &.list-header{
+      font-weight: bold;
+      margin: 10px;
+    }
+    &.product-list-item{
+      margin: 5px 0;
+    }
+    span {
+      min-width: 15%;
+      max-width: 20%;
+    }
+  }
+}

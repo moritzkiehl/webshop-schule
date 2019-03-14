@@ -1,4 +1,7 @@
-AuthType Basic
-AuthName "Password Protected Area"
-AuthUserFile /kunden/367901_76133/webseiten/werkraumhosting.net/mk_schulprojekt/httpdocs/.htpasswd
-Require valid-user
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Send would-be 404 requests to Craft
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (.+) index.php?p=$1 [QSA,L]
+</IfModule>

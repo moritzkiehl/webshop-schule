@@ -3,34 +3,50 @@
 namespace MoritzKiehl\Webshop\Domain\Model;
 
 use MoritzKiehl\Webshop\Database\Database;
+
 class Customer
 {
-    private $database;
+    private $userdata;
 
     public function __construct()
     {
-        $this->database = Database::getDatabase();
+        $this->userdata = [];
     }
 
     public function removeCustomer($id)
     {
-
+        $stmt = Database::getDatabase()->prepare("DELETE FROM customer WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
     }
 
-    public function addCustomer($stuff){
-
-    }
-
-    public function getCustomer($id)
-    {
-        return $this->database->query("SELECT * FROM customer WHERE ID = " . $id)->fetch_assoc();
-    }
-
-    public function getAllCustomers()
+    public function addCustomer($salutation, $firstname, $lastname, $phone, $mail, $fax, $address, $city, $username, $password)
     {
 
-        return $this->database->query("SELECT * FROM customer")->fetch_all(MYSQLI_ASSOC);
+        $statement = Database::getDatabase()->prepare("INSERT INTO customer (Salutation, Firstname, Lastname, Phone, E-Mail, Fax, Address, City, Username, Password) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $statement->bind_param("sssisisiss", $salutation,$firstname,$lastname,$phone,$mail,$fax,$address,$city,$username,$password);
+        $statement->execute();
+        $statement->close();
     }
+
+    public function getCustomerByID($id)
+    {
+        if ($this->userdata === null) {
+            $this->userdata = Database::getDatabase()->query("SELECT * FROM customer WHERE ID = " . $id)->fetch_assoc();
+        }
+        return $this->userdata;
+    }
+
+    public function getUserByUsername($username)
+    {
+        if ($this->userdata === null) {
+
+            $this->userdata = Database::getDatabase()->query("SELECT * FROM customer WHERE Username = " . $username)->fetch_assoc();
+        }
+        return $this->userdata;
+    }
+
 
     public static function getDummyCustomer()
     {

@@ -6,26 +6,26 @@ use MoritzKiehl\Webshop\Database\Database;
 
 class Product
 {
-    private $database;
-
-    public function __construct()
-    {
-        $this->database = Database::getDatabase();
-    }
 
     public function removeProduct($id)
     {
+        $stmt = Database::getDatabase()->prepare("DELETE FROM products WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function addProduct($name, $price, $weight, $untis, $category, $producer)
+    {
+        $statement = Database::getDatabase()->prepare("INSERT INTO products (Name, Price, Units, Weight, Category, Producer) VALUES (?,?,?,?,?,?)");
+        $statement->bind_param("siiiii", $name, $price, $weight, $untis, $category, $producer);
+        $statement->execute();
+        $statement->close();
     }
 
     public function getProduct($id)
     {
-        return $this->database->query("SELECT * FROM products WHERE ID = " . $id)->fetch_assoc();
-    }
-
-    public function getAllProducts()
-    {
-
-        return $this->database->query("SELECT * FROM products")->fetch_all(MYSQLI_ASSOC);
+        return Database::getDatabase()->query("SELECT * FROM products WHERE ID = " . $id)->fetch_assoc();
     }
 
     public static function getDummyProductInformation()

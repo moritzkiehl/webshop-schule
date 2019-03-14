@@ -2,6 +2,7 @@
 
 namespace MoritzKiehl\Webshop\View;
 
+use MoritzKiehl\Webshop\Database\Database;
 use MoritzKiehl\Webshop\Domain\Model\Product;
 
 class ProductView
@@ -28,12 +29,15 @@ class ProductView
     public static function outputAllProducts()
     {
         $products = new Product;
-        foreach ($products->getAllProducts() as $information) {
+        foreach (Database::getAllProducts() as $information) {
             echo "<div class='product'>
                 <div class='product-body'>
                     <h1>" . $information['Name'] . "</h1>
                     <p>Preis: " . $information['Price'] . "</p>
                     <p>Bestand: " . $information['Units'] . "</p>
+                    <p>Kategorie: " . $information['Category'] . "</p>
+                    <p>Gewicht: " . $information['Weight'] . "g</p>
+                    <p>Produzent: " . $information['Producer'] . "</p>
                 </div>
             </div>";
         }

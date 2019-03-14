@@ -48,7 +48,31 @@ div {
     .product-wrapper .product .product-body {
       flex-direction: column; }
 
+.admin-view {
+  display: flex;
+  flex-wrap: wrap; }
+  .admin-view div {
+    width: 100%; }
+
+.product-list-view {
+  width: 100%;
+  flex-wrap: wrap; }
+  .product-list-view div {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%; }
+    .product-list-view div.list-header {
+      font-weight: bold;
+      margin: 10px; }
+    .product-list-view div.product-list-item {
+      margin: 5px 0; }
+    .product-list-view div span {
+      min-width: 15%;
+      max-width: 20%; }
+
 .footer-container {
+  position: fixed;
+  bottom: 0;
   justify-content: center;
   flex-direction: column; }
 
