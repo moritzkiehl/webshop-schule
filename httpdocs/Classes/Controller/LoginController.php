@@ -24,6 +24,7 @@ class LoginController
             $username = rmHtmlEnt($username);
             $password = rmHtmlEnt($password);
             if ($this->loginService->attempt($username, $password)){
+
                 header("Location: dashboard");
             }
         }

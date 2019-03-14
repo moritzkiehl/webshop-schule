@@ -12,26 +12,12 @@ class Producer
         $this->database = Database::getDatabase();
     }
 
-  public function getProducerInformation()
-    {
-
-    }
-
-    public function removeProduct($id)
-    {
-
-    }
-
     public function getProducer($id)
     {
         return $this->database->query("SELECT * FROM producer WHERE ID = " . $id)->fetch_assoc();
     }
 
-    public function getAllProducers()
-    {
 
-        return $this->database->query("SELECT * FROM producer")->fetch_all(MYSQLI_ASSOC);
-    }
 
     public static function getDummyProducerInformation()
     {

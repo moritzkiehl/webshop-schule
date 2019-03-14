@@ -34,6 +34,7 @@ class LoginService
 
         if (password_verify($password, $user["Password"])) {
             $_SESSION['login'] = $user["Username"];
+            header("Refresh:0");
             session_regenerate_id(true);
             return true;
         } else {
@@ -44,6 +45,7 @@ class LoginService
     public function logout()
     {
         unset($_SESSION['login']);
+        header("Refresh:0");
         session_regenerate_id(true);
     }
 }

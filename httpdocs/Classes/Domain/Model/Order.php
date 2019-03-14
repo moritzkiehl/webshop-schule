@@ -7,29 +7,28 @@ class Order
 {
     private $database;
 
+    public $orders;
+
+    private $product;
+
     public function __construct()
     {
         $this->database = Database::getDatabase();
-    }
-    public function getOrderInformation()
-    {
-
+        $this->product = new Product();
+        $this->orders = array();
     }
 
     public function removeOrder($id)
     {
 
     }
+    public function addOrder($id){
+        $this->orders[] = $this->product->getProduct($id);
+    }
 
     public function getOrder($id)
     {
         return $this->database->query("SELECT * FROM order WHERE ID = " . $id)->fetch_assoc();
-    }
-
-    public function getAllOrders()
-    {
-
-        return $this->database->query("SELECT * FROM order")->fetch_all(MYSQLI_ASSOC);
     }
 
     public static function getDummyOrder()

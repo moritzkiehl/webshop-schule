@@ -1,14 +1,39 @@
-.product-wrapper{
+.product-wrapper {
   justify-content: flex-start;
+  @media screen and (max-width: 992px) {
+    justify-content: space-around;
+  }
   width: 100%;
   margin-top: 15px;
-  .product{
+  flex-wrap: wrap;
+
+  &.single {
+    justify-content: center;
+
+    form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 15px 0 0 0;
+    }
+  }
+
+  .product {
     padding: 0 15px;
-    margin: 0 1%;
+    margin: 15px 1%;
     border: 1px solid black;
-    width: 30%;
-    .product-body{
+    width: 28%;
+    @media screen and (max-width: 496px) {
+      width: 100%;
+      margin: 15px 25px;
+    }
+
+    .product-body {
       flex-direction: column;
+
+      .hide {
+        display: none !important;
+      }
     }
   }
 }

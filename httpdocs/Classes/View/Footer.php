@@ -12,7 +12,6 @@ if (!isset($_SESSION["login"])) {
 } else {
     echo "<div class=\"footer\">
     <div class=\"container footer-container\">
-        <p>Footer</p>
         <form method=\"post\"  name=\"logoutForm\">
             <input type=\"submit\" name=\"logout\" value=\"Ausloggen\">
             <input type=\"submit\" name=\"dashboard\" value=\"zum Dashboard\">

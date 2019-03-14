@@ -4,7 +4,7 @@ use MoritzKiehl\Webshop\Domain\Model\Product;
 use MoritzKiehl\Webshop\Database\Database;
 
 ?>
-    <form name="newProduct" method="post">
+    <form name="newProduct" method="post" action="">
         <input type="text" name="productName" placeholder="Productname"/>
         <input type="text" name="price" placeholder="Preis"/>
         <input type="text" name="weight" placeholder="Gewicht"/>
@@ -23,12 +23,11 @@ use MoritzKiehl\Webshop\Database\Database;
             }
             ?>
         </select>
-        <input type="submit" name="submitNewProduct" value="Produkt anlegen"/>
+        <input type="submit" name="newProduct" value="Produkt anlegen"/>
     </form>
 
 <?php
-var_dump($_POST);
-if (isset($_POST["submitNewProduct"])) {
+if (isset($_POST["newProduct"])) {
     echo "check";
     $product = new Product();
     $name = rmHtmlEnt($_POST["productName"]);
@@ -38,5 +37,7 @@ if (isset($_POST["submitNewProduct"])) {
     $category = rmHtmlEnt($_POST["category"]);
     $producer = rmHtmlEnt($_POST["producer"]);
     $product->addProduct($name, $price, $weight, $untis, $category, $producer);
+    header("Refresh:0");
+
 }
 ?>

@@ -10,6 +10,7 @@ use MoritzKiehl\Webshop\Database\Database;
                 <span>Produktname</span><span>Preis</span><span>Bestand</span><span>Kategorie</span><span>Gewicht</span><span>Produzent</span><span>Löschen</span>
             </div>
             <?php
+            $producer = new \MoritzKiehl\Webshop\Domain\Model\Producer();
             foreach (Database::getAllProducts() as $information) {
                 echo "
                 <div class='product-list-item'>
@@ -18,7 +19,7 @@ use MoritzKiehl\Webshop\Database\Database;
                     <span>" . $information['Units'] . "</span>
                     <span>" . $information['Category'] . "</span>
                     <span>" . $information['Weight'] . "g</span>
-                    <span>" . $information['Producer'] . "</span>
+                    <span>" . $producer->getProducer($information['Producer'])["Name"] . "</span>
                 <input type='checkbox' name='".$information['ID']."'>
                 </div>
             ";
