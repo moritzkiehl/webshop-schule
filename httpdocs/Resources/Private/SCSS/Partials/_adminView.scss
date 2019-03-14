@@ -1,28 +1,57 @@
-.admin-view{
+.admin-view {
   display: flex;
   flex-wrap: wrap;
-  div{
+  padding: 20px;
+
+  div {
+    width: 100%;
+  }
+
+  .removalForm {
     width: 100%;
   }
 }
+
 .product-list-view {
   width: 100%;
   flex-wrap: wrap;
+  @media screen and (max-width: 992px) {
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
 
   div {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    &.list-header{
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      width: auto;
+    }
+
+    &.list-header, &.product-list-item {
       font-weight: bold;
       margin: 10px;
+      @media screen and (max-width: 768px) {
+        margin-top: 0;
+      }
+
     }
     &.product-list-item{
-      margin: 5px 0;
+      font-weight: normal;
     }
+
     span {
       min-width: 15%;
       max-width: 20%;
+      @media screen and (max-width: 768px) {
+        max-width: unset;
+        min-width: unset;
+        margin-top: 5px;
+      }
+
     }
   }
 }
